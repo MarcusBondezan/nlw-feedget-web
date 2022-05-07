@@ -5,6 +5,12 @@ import { SubmitFeedbackUseCase } from './use-cases/submit-feedback.use-case';
 
 export const routes = express.Router();
 
+routes.get('/health-check', (req, res) => {
+  return res.status(200).send({
+    status: 'UP'
+  });
+});
+
 routes.post('/feedbacks', async (req, res) => {
   const { type, comment, screenshot } = req.body;
 
